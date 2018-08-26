@@ -19,7 +19,7 @@ describe('"$ node password 10 2" command', function () {
     passwordAppProcess = cp.spawn('node', ['password', '10', '2'])
     passwordAppProcess.stdout.on('data', (data) => {
       data = data.toString('utf8').replace('\n','')
-      expect(data.length).to.equal(10)
+      expect(data.length).to.equal(21)
       passwordAppProcess.kill()
       done()
     })
