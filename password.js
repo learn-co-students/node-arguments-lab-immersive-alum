@@ -1,29 +1,20 @@
-// code solution here
 
-function readInput(cmdArgs){
-    if((cmdArgs.length === 2) ||(cmdArgs.length >= 5)){
-        console.log("please enter the valid command:\n node <script> <no of passwords> <character length>")
-        process.exit(1)
+
+let lengthOfPass = process.argv[2]
+let noOfPasswords = process.argv[3]
+let passArray = []
+
+function generatePassword(passLength) {
+    charset = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789",
+    retVal = "";
+    for (let i = 0, n = charset.length; i < passLength; ++i) {
+        retVal += charset.charAt(Math.floor(Math.random() * n));
     }
-    else{
-        console.log("generating passwords...");
-        generatePasswords(cmdArgs[2], cmdArgs[3]);
-    }
+    return retVal;
 }
 
-function generatePasswords(passLength, noOfPass){
-    const charset = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
-    let passValue = "";
-    for(let i = 0; i < noOfPass; i++){
-        for (let j = 0, cL = charset.length; j < passLength; j++) {
-            passValue += charset.charAt(Math.floor(Math.random() * cL));
-        }
-        console.log(passValue)
-        passValue = ""
-    }
-    
-     
+for(let j = 0; j < noOfPasswords; j++){
+    passArray.push(generatePassword(lengthOfPass))
 }
-readInput(process.argv);
 
-process.exit(0) 
+passArray.map(p =>{console.log(p)})
