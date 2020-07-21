@@ -4,7 +4,7 @@
   "description": "Node Arguments Lab",
   "main": "index.js",
   "scripts": {
-    "test": "node_modules/mocha/bin/mocha test"
+    "test": "timeout 5000 node_modules/mocha/bin/mocha test"
   },
   "repository": {
     "type": "git",
